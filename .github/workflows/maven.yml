@@ -32,7 +32,7 @@ jobs:
           pwd
           ls
           mv $APP_JAR_DIR app.jar
-          docker build -f Dockerfile -t $IMAGE_NAME .
+          docker build -f /home/runner/work/RuoYi-Plus/RuoYi-Plus/Dockerfile -t $IMAGE_NAME .
       - uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REGISTRY }}
