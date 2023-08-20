@@ -8,8 +8,8 @@ on:
       
 # 环境变量
 env:
-  IMAGE_NAME: projectName
-  APP_JAR_DIR: target/projectName-0.0.1-SNAPSHOT.jar
+  IMAGE_NAME: ruoyi_plus
+  APP_JAR_DIR: ruoyi-admin/target/ruoyi-admin.jar
   
 # 任务列表，测试步骤暂时空缺
 jobs:
