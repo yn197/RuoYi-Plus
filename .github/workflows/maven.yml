@@ -31,8 +31,8 @@ jobs:
           mvn package -U -Dcodegen.skip -Dmaven.test.skip=true
           pwd
           ls
-          mv $APP_JAR_DIR app.jar
-          docker build -f /home/runner/work/RuoYi-Plus/RuoYi-Plus/Dockerfile -t $IMAGE_NAME .
+          mv /home/runner/work/RuoYi-Plus/RuoYi-Plus/ruoyi-admin/target/ruoyi-admin.jar app.jar
+          docker build -f Dockerfile -t $IMAGE_NAME .
       - uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REGISTRY }}
