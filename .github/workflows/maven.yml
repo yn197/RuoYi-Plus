@@ -29,6 +29,8 @@ jobs:
           java-version: 1.8
       - run: |-
           mvn package -U -Dcodegen.skip -Dmaven.test.skip=true
+          pwd
+          ls
           mv $APP_JAR_DIR app.jar
           docker build -f Dockerfile -t $IMAGE_NAME .
       - uses: elgohr/Publish-Docker-Github-Action@master
