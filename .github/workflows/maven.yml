@@ -32,10 +32,10 @@ jobs:
         run: mvn -B package
  
       - name: 删除旧的jar包以及运行脚本
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /root/GitHub_Action && rm -rf ./*"
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
  
       - name: 上传jar包和启动脚本到服务器中
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./target/GithubActionDemo-0.0.1-SNAPSHOT.jar ./run.sh root@${{secrets.CHAOYUEIP}}:/root/GitHub_Action
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh root@${{secrets.CHAOYUEIP}}:/usr/local/java
  
       - name: 启动项目
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /root/GitHub_Action && chmod +x run.sh && ./run.sh"
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
