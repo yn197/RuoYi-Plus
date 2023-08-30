@@ -32,10 +32,10 @@ jobs:
         run: mvn -B package -DskipTests
  
       - name: 删除旧的jar包以及运行脚本
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
  
       - name: 上传jar包和启动脚本到服务器中
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh root@${{secrets.CHAOYUEIP}}:/usr/local/java
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh ruoyi@${{secrets.CHAOYUEIP}}:/usr/local/java
  
       - name: 启动项目
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no root@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
