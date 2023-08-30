@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-slim
 LABEL maintainer=yangsan
 
-COPY ruoyi-admin/target/*.jar   /app.jar
+COPY /home/runner/work/RuoYi-Plus/RuoYi-Plus/ruoyi-admin/target/*.jar   /app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]

@@ -1,62 +1,41 @@
-name: Jave8 CICD with Actions
-
-# 触发条件，当指定分支push代码时触发
-on:
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+ 
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+ 
+name: Java CI with Maven
+ 
+on:    
   push:
-    branches:
-      - develop
-      
-# 环境变量
-env:
-  IMAGE_NAME: ruoyi_plus
-  APP_JAR_DIR: ruoyi-admin/target/ruoyi-admin.jar
-  
-# 任务列表，测试步骤暂时空缺
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+ 
 jobs:
-  # 自动化单元测试
-  test:
+  develop_build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "测试成功"
-  # maven编译打包，和Dockerfile制作镜像，push到dockerhub仓库
-  compile-build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-java@v1
+      - name: 拉取最新提交的代码
+        uses: actions/checkout@v3
+ 
+      - name: 设置jdk
+        uses: actions/setup-java@v3
         with:
-          java-version: 1.8
-      - run: |-
-          mvn package -U -Dcodegen.skip -Dmaven.test.skip=true
-          mv $APP_JAR_DIR app.jar
-          docker build -f Dockerfile -t $IMAGE_NAME .
-      - uses: elgohr/Publish-Docker-Github-Action@master
-        with:
-          name: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REGISTRY }}
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: "latest,${{ env.STATE_RELEASE_VERSION }}"
-  # 将deploy.sh通过scp传输到服务器，并使用ssh远程操作进行部署
-  deploy:
-    needs: compile-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: garygrossgarten/github-action-scp@release
-        with:
-          local: deploy.sh
-          remote: deploy.sh
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASS }}
-      - uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASS }}
-          port: 22
-          script: |-
-            chmod +x deploy.sh
-            sh deploy.sh
-            rm -rf deploy.sh
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+ 
+      - name: 项目打包
+        run: mvn -B package -DskipTests
+ 
+      - name: 删除旧的jar包以及运行脚本
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
+ 
+      - name: 上传jar包和启动脚本到服务器中
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh ruoyi@${{secrets.CHAOYUEIP}}:/usr/local/java
+ 
+      - name: 启动项目
+        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
