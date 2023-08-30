@@ -9,4 +9,4 @@ sleep 5s
 # 使环境变量生效
 source /root/.bash_profile
 # 运行项目
-nohup java -jar ruoyi-admin.jar >/root/cicd.log 2>&1 &
+nohup java -jar ruoyi-admin.jar  -Xms256m -Xmx512m -XX:PermSize=256M -XX:MaxPermSize=512M>/root/cicd.log 2>&1 &
