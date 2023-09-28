@@ -45,6 +45,22 @@ user:
 
 # Spring配置
 spring:
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: guest
+    port: 5672
+    password: guest
+    listener:
+      simple:
+        #消费失败消息干掉
+        default-requeue-rejected: true
+        retry:
+          # 开启消费者失败重试
+          enabled: true
+          # 初识的失败等待时长为1秒
+          initial-interval: 1000ms
+          # 最大重试次数
+          max-attempts: 1
   # 模板引擎
   thymeleaf:
     mode: HTML
