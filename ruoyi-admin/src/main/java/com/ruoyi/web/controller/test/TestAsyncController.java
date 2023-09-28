@@ -18,11 +18,9 @@ import javax.annotation.Resource;
 public class TestAsyncController {
     @Resource
     private TestAsyncService testAsyncService;
-
-    @GetMapping("/asyn")
+    @GetMapping("/asynchronous")
     public void testAsync() throws InterruptedException {
         testAsyncService.service1();
         testAsyncService.service2();
-
     }
 }

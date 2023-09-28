@@ -1,41 +1,41 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
- 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
- 
-name: Java CI with Maven
- 
-on:    
-  push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
- 
-jobs:
-  develop_build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 拉取最新提交的代码
-        uses: actions/checkout@v3
- 
-      - name: 设置jdk
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'maven'
- 
-      - name: 项目打包
-        run: mvn -B package -DskipTests
- 
-      - name: 删除旧的jar包以及运行脚本
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
- 
-      - name: 上传jar包和启动脚本到服务器中
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh ruoyi@${{secrets.CHAOYUEIP}}:/usr/local/java
- 
-      - name: 启动项目
-        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
+## This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+## For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+#
+## This workflow uses actions that are not certified by GitHub.
+## They are provided by a third-party and are governed by
+## separate terms of service, privacy policy, and support
+## documentation.
+#
+#name: Java CI with Maven
+#
+#on:
+#  push:
+#    branches: [ "develop" ]
+#  pull_request:
+#    branches: [ "develop" ]
+#
+#jobs:
+#  develop_build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: 拉取最新提交的代码
+#        uses: actions/checkout@v3
+#
+#      - name: 设置jdk
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'temurin'
+#          java-version: '17'
+#          cache: 'maven'
+#
+#      - name: 项目打包
+#        run: mvn -B package -DskipTests
+#
+#      - name: 删除旧的jar包以及运行脚本
+#        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && rm -rf ./*"
+#
+#      - name: 上传jar包和启动脚本到服务器中
+#        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} scp -r -o StrictHostKeyChecking=no ./ruoyi-admin/target/ruoyi-admin.jar ./run.sh ruoyi@${{secrets.CHAOYUEIP}}:/usr/local/java
+#
+#      - name: 启动项目
+#        run: sshpass -p ${{secrets.CHAOYUEPASSWORD}} ssh -o StrictHostKeyChecking=no ruoyi@${{secrets.CHAOYUEIP}} "cd /usr/local/java && chmod +x run.sh && ./run.sh"
