@@ -3,7 +3,7 @@ package com.ruoyi.framework.datasource;
 import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-import com.ruoyi.common.config.datasource.DynamicDataSourceContextHolder;
+import com.ruoyi.common.core.config.datasource.DynamicDataSourceContextHolder;
 
 /**
  * 动态数据源

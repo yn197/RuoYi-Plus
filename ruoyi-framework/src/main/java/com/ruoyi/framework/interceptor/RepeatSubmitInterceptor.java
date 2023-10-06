@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
-import com.ruoyi.common.json.JSON;
-import com.ruoyi.common.annotation.RepeatSubmit;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.utils.ServletUtils;
+import com.ruoyi.common.core.json.JSON;
+import com.ruoyi.common.core.annotation.RepeatSubmit;
+import com.ruoyi.common.core.web.domain.AjaxResult;
+import com.ruoyi.common.core.utils.ServletUtils;
 
 /**
  * 防止重复提交拦截器

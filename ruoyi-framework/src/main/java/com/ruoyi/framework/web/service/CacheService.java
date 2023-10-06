@@ -3,8 +3,8 @@ package com.ruoyi.framework.web.service;
 import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Service;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.CacheUtils;
+import com.ruoyi.common.core.constant.Constants;
+import com.ruoyi.common.core.utils.CacheUtils;
 
 /**
  * 缓存操作处理

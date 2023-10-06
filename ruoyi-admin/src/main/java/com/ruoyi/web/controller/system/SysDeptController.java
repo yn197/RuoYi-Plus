@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.domain.Ztree;
-import com.ruoyi.common.core.domain.entity.SysDept;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.core.annotation.Log;
+import com.ruoyi.common.core.constant.UserConstants;
+import com.ruoyi.common.core.web.controller.BaseController;
+import com.ruoyi.common.core.web.domain.AjaxResult;
+import com.ruoyi.common.core.web.domain.Ztree;
+import com.ruoyi.common.core.web.domain.entity.SysDept;
+import com.ruoyi.common.core.enums.BusinessType;
+import com.ruoyi.common.core.utils.StringUtils;
 import com.ruoyi.system.service.ISysDeptService;
 
 /**

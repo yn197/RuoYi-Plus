@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.ModelAndView;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.exception.DemoModeException;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.security.PermissionUtils;
+import com.ruoyi.common.core.web.domain.AjaxResult;
+import com.ruoyi.common.core.exception.DemoModeException;
+import com.ruoyi.common.core.exception.ServiceException;
+import com.ruoyi.common.core.utils.ServletUtils;
+import com.ruoyi.common.core.utils.security.PermissionUtils;
 
 /**
  * 全局异常处理器

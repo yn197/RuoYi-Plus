@@ -8,12 +8,12 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.ShiroConstants;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
-import com.ruoyi.common.exception.user.UserPasswordRetryLimitExceedException;
-import com.ruoyi.common.utils.MessageUtils;
+import com.ruoyi.common.core.constant.Constants;
+import com.ruoyi.common.core.constant.ShiroConstants;
+import com.ruoyi.common.core.web.domain.entity.SysUser;
+import com.ruoyi.common.core.exception.user.UserPasswordNotMatchException;
+import com.ruoyi.common.core.exception.user.UserPasswordRetryLimitExceedException;
+import com.ruoyi.common.core.utils.MessageUtils;
 import com.ruoyi.framework.manager.AsyncManager;
 import com.ruoyi.framework.manager.factory.AsyncFactory;
 

@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.domain.CxSelect;
-import com.ruoyi.common.json.JSONObject;
-import com.ruoyi.common.json.JSONObject.JSONArray;
-import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.core.web.domain.AjaxResult;
+import com.ruoyi.common.core.web.domain.CxSelect;
+import com.ruoyi.common.core.json.JSONObject;
+import com.ruoyi.common.core.json.JSONObject.JSONArray;
+import com.ruoyi.common.core.utils.StringUtils;
 
 /**
  * 表单相关

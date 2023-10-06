@@ -22,7 +22,7 @@ import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.util.ClassUtils;
-import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.core.utils.StringUtils;
 
 /**
  * Mybatis支持*匹配扫描包

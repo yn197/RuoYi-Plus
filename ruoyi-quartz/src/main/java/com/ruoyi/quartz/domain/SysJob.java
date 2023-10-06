@@ -5,11 +5,11 @@ import java.util.Date;
 import javax.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.annotation.Excel.ColumnType;
-import com.ruoyi.common.constant.ScheduleConstants;
-import com.ruoyi.common.core.domain.BaseEntity;
-import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.core.annotation.Excel;
+import com.ruoyi.common.core.annotation.Excel.ColumnType;
+import com.ruoyi.common.core.constant.ScheduleConstants;
+import com.ruoyi.common.core.web.domain.BaseEntity;
+import com.ruoyi.common.core.utils.StringUtils;
 import com.ruoyi.quartz.util.CronUtils;
 
 /**
