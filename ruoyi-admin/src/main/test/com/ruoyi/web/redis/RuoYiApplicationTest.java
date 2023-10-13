@@ -1,6 +1,6 @@
 package com.ruoyi.web.redis;
 
-import com.ruoyi.framework.redis.service.RedisService;
+import com.ruoyi.common.redis.service.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
