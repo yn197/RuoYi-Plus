@@ -21,10 +21,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.ruoyi.common.core.constant.Constants;
-import com.ruoyi.common.core.utils.StringUtils;
-import com.ruoyi.common.core.utils.security.CipherUtils;
-import com.ruoyi.common.core.utils.spring.SpringUtils;
+import com.ruoyi.common.constant.Constants;
+import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.security.CipherUtils;
+import com.ruoyi.common.utils.spring.SpringUtils;
 import com.ruoyi.framework.shiro.realm.UserRealm;
 import com.ruoyi.framework.shiro.session.OnlineSessionDAO;
 import com.ruoyi.framework.shiro.session.OnlineSessionFactory;
@@ -296,8 +296,7 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/register", "anon,captchaValidate");
         // 系统权限列表
         // filterChainDefinitionMap.putAll(SpringUtils.getBean(IMenuService.class).selectPermsAll());
-        //平时测试使用
-        filterChainDefinitionMap.put("/api/**", "anon");
+
         Map<String, Filter> filters = new LinkedHashMap<String, Filter>();
         filters.put("onlineSession", onlineSessionFilter());
         filters.put("syncOnlineSession", syncOnlineSessionFilter());

@@ -26,7 +26,7 @@
         <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-common-core</artifactId>
+            <artifactId>ruoyi-common</artifactId>
         </dependency>
 
         <!-- 阿里数据库连接池 -->

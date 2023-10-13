@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.ruoyi.common.core.utils.StringUtils;
-import com.ruoyi.common.core.xss.XssFilter;
+import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.xss.XssFilter;
 
 /**
  * Filter配置

@@ -5,9 +5,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import com.google.code.kaptcha.Constants;
-import com.ruoyi.common.core.constant.ShiroConstants;
-import com.ruoyi.common.core.utils.ShiroUtils;
-import com.ruoyi.common.core.utils.StringUtils;
+import com.ruoyi.common.constant.ShiroConstants;
+import com.ruoyi.common.utils.ShiroUtils;
+import com.ruoyi.common.utils.StringUtils;
 
 /**
  * 验证码过滤器

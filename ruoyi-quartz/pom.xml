@@ -32,7 +32,7 @@
         <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-common-core</artifactId>
+            <artifactId>ruoyi-common</artifactId>
         </dependency>
 
     </dependencies>

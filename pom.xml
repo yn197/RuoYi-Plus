@@ -199,6 +199,17 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>common</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-common</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
             <!-- 通用工具-缓存服务-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
@@ -207,11 +218,7 @@
             </dependency>
 
             <!-- 通用工具-核心模块服务-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-common-core</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -231,6 +238,7 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-reflect</module>
+        <module>common</module>
     </modules>
     <packaging>pom</packaging>
 

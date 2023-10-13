@@ -22,10 +22,10 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <!-- RuoYi Common Core-->
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-common</artifactId>
+            <version>4.7.7</version>
         </dependency>
     </dependencies>
 

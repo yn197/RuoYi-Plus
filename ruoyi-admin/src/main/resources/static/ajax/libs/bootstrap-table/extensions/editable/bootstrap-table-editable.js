@@ -26,7 +26,7 @@ $.extend($.fn.bootstrapTable.columnDefaults, {
   alwaysUseFormatter: false
 })
 
-$.extend($.fn.bootstrapTable.events, {
+$.extend($.fn.bootstrapTable.Constructor.EVENTS, {
   'editable-init.bs.table': 'onEditableInit',
   'editable-save.bs.table': 'onEditableSave',
   'editable-shown.bs.table': 'onEditableShown',
@@ -63,7 +63,7 @@ $.BootstrapTable = class extends $.BootstrapTable {
 
       column.formatter = column.formatter || (value => value)
       column._formatter = column._formatter ? column._formatter : column.formatter
-      column.formatter = (value, row, index, field) => {
+      column.formatter = (value, row, index) => {
         let result = Utils.calculateObjectValue(column, column._formatter, [value, row, index], value)
 
         result = typeof result === 'undefined' || result === null ? this.options.undefinedText : result
@@ -86,7 +86,7 @@ $.BootstrapTable = class extends $.BootstrapTable {
           column.editable, [index, row], {})
 
         if (editableOpts.hasOwnProperty('noEditFormatter')) {
-          noEditFormatter = editableOpts.noEditFormatter(value, row, index, field)
+          noEditFormatter = editableOpts.noEditFormatter(value, row, index)
         }
 
         if (noEditFormatter === false) {
@@ -177,9 +177,7 @@ $.BootstrapTable = class extends $.BootstrapTable {
     if (params && params.escape) {
       for (const row of data) {
         for (const [key, value] of Object.entries(row)) {
-          if (typeof(value) !== "number") {
-              row[key] = Utils.unescapeHTML(value)
-          }
+          row[key] = Utils.unescapeHTML(value)
         }
       }
     }

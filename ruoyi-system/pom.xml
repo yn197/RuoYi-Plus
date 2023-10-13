@@ -20,7 +20,8 @@
         <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-common-core</artifactId>
+            <artifactId>ruoyi-common</artifactId>
+            <version>4.7.7</version>
         </dependency>
 
     </dependencies>
