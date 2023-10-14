@@ -216,6 +216,12 @@
                 <artifactId>ruoyi-common-redis</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
+            <!-- ruoyi-common-core-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-common-core</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
 
             <!-- 通用工具-核心模块服务-->
 

@@ -11,6 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>ruoyi-common-redis</module>
+        <module>ruoyi-common-core</module>
     </modules>
 
     <artifactId>common</artifactId>
