@@ -236,6 +236,25 @@
                 <artifactId>ruoyi-common-kafka</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
+            <!-- ruoyi-file-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-common-file</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+            <!-- ruoyi-provider-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-provider</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <!-- ruoyi-consumer-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-consumer</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
             <!-- 通用工具-核心模块服务-->
 
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
@@ -257,6 +276,8 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-reflect</module>
+        <module>ruoyi-provider</module>
+        <module>ruoyi-consumer</module>
         <module>common</module>
     </modules>
     <packaging>pom</packaging>

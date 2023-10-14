@@ -152,6 +152,11 @@ public class KafkaUtils {
 
     @FunctionalInterface
     interface HeaderInterface {
+        /**
+         * Execute.
+         *
+         * @param record the record
+         */
         void execute(ConsumerRecord<String, String> record);
     }
 
