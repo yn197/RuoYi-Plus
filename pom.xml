@@ -30,6 +30,7 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <elasticsearch.version>7.6.2</elasticsearch.version>
+        <spring.data.elasticsearch.version>2.3.4.RELEASE</spring.data.elasticsearch.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -170,6 +171,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${spring.data.elasticsearch.version}</version>
             </dependency>
             <!-- 定时任务-->
             <dependency>
@@ -222,7 +224,18 @@
                 <artifactId>ruoyi-common-core</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
-
+            <!-- ruoyi-common-es-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-common-es</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+            <!-- ruoyi-common-kafka-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-common-kafka</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
             <!-- 通用工具-核心模块服务-->
 
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->

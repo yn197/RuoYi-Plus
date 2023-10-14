@@ -12,6 +12,8 @@
     <modules>
         <module>ruoyi-common-redis</module>
         <module>ruoyi-common-core</module>
+        <module>ruoyi-common-es</module>
+        <module>ruoyi-common-kafka</module>
     </modules>
 
     <artifactId>common</artifactId>
